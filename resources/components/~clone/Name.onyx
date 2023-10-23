@@ -1,0 +1,5 @@
+-- This is component body --
+Hello {user} in our component!
+
+-- Linking styles --
+#{Styles(style: 'File.css', scope: true)}

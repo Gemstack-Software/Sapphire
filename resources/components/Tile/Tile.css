@@ -1,0 +1,30 @@
+@ .tile {
+    background: rgb(24 24 27 / 80%);
+    box-shadow: 0 0 8px #0004;
+    color: #ccc;
+    
+    margin: 16px;
+    padding: 16px 24px;
+    width: 350px;
+
+    text-align: center;
+    cursor: pointer;
+
+    display: block;
+    text-decoration: none;
+    transition: .225s;
+}
+
+@ .tile:hover {
+    background: rgb(24 24 27 / 50%);
+}
+
+@ .tile__icon {
+    font-size: 32px;
+    color: #0099ff;
+}
+
+@ .tile__name {
+    margin-top: 20px;
+    font-size: 24px;
+}

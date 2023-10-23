@@ -1,0 +1,40 @@
+.notification-container {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    pointer-events: none;
+
+    .notification__root {
+        width: 500px;
+        height: 50px;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        background: $background-color-lighten;
+        box-shadow: 0 0 8px #0008;
+
+        margin-top: 16px;
+        pointer-events: all;
+
+        .notification__left {
+            width: 50px;
+            height: 50px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 24px;
+        }
+
+        .notification__right {
+            padding: 8px;
+
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    }
+}

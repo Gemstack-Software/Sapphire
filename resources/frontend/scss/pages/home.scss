@@ -1,0 +1,49 @@
+.home {
+    width: 100%;
+
+    .big-padding-container {
+        min-height: calc(100vh - 50px);
+        width: 100%;
+    
+        .big-header {
+            font-size: 40px;
+        }
+    
+        .subtext {
+            font-size: 24px;
+            margin-top: 24px;
+            color: #aaa;
+        }
+
+        .quick-header {
+            margin-top: 48px;
+            font-size: 24px;
+            
+            color: #888;
+        }
+
+        .info-boxes-container {
+            margin-top: 16px;
+            width: 70%;
+
+            display: flex;
+            align-items: stretch;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+
+            .info-box-vertical {
+                width: max(calc(40% - 32px), 300px);
+                margin-right: 32px;
+                margin-bottom: 32px;
+
+                .info-box-description {
+                    text-align: justify;
+                    margin-top: 16px;
+                    font-size: 20px;
+
+                    color: #aaa;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+-- Using Modules --
+<?php use Sapphire\Styles\Style; ?>
+<?php use Sapphire\Page\Page; ?>
+
+-- Page title --
+<title>Sapphire - {Page::Current()->GetName()}</title>
+
+-- Linking styles --
+#{Style::Link('Main')}
+
+-- Fontawesome --
+<script src="https://kit.fontawesome.com/f6412110a3.js" crossorigin="anonymous"></script>

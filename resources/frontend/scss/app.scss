@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=REM&display=swap');
+@import "config.scss";
+@import "glass-form.scss";
+@import "buttons.scss";
+@import "slider.scss";
+@import "form.scss";
+@import "password.scss";
+@import "dashboard.scss";
+@import "footer.scss";
+@import "borders.scss";
+@import "code.scss";
+@import "scrollbar.scss";
+@import "notification.scss";
+@import "exception.scss";
+@import "pages/home.scss";
+@import "pages/content-builder.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+*:not(.fa-solid, .fa-regular, .fa-bold, .monaco-container__outer *) {
+    font-family: $font-family;
+}
+
+body {
+    min-height: 100vh;
+
+    background: $background-color;
+    color: $font-color;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.full {
+        height: 100vh;
+    }
+}
+
+.top-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.stretch {
+    align-items: stretch;
+}
+
+.theme {
+    color: $theme;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.horitzontal-line {
+    display: block;
+
+    width: 100%;
+    height: 0px;
+    margin: 8px 0;
+    
+    border-bottom: 2px solid #fff8;
+}
+
+.link {
+    color: $theme;
+    text-decoration: none;
+}
+
+.danger-color {
+    color: $danger;
+}
+
+.vertical-line {
+    display: block;
+    
+    margin: 0 8px;
+    height: 100%;
+    width: 0px;
+
+    border-right: 1px solid #fff4;
+}
+
+.hidden {
+    display: none;
+}
+
+.text-overflow {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.mr-16 {
+    margin-right: 16px;
+}

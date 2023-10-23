@@ -1,0 +1,8 @@
+-- This is component body --
+<a class="tile" href="{$params->link}">
+    <em class="tile__icon {$params->icon}"></em>
+    <header class="tile__name"> {$params->name} </header>
+</a>
+
+-- Linking styles --
+#{Styles(style: 'Tile.css', scope: true)}

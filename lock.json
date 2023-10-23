@@ -1,0 +1,11 @@
+{
+    "database": {
+        "host": "localhost",
+        "user": "root",
+        "pass": "",
+        "name": "sapphire" 
+    },
+    "sapphire": {
+        "version": "1.0.0"
+    }
+}

@@ -1,0 +1,1 @@
+CREATE TABLE `sapphire_analytics_statistics` ( `id` INT NOT NULL AUTO_INCREMENT , `time_start` TEXT NOT NULL , `path` TEXT NOT NULL , `client` TEXT NOT NULL , PRIMARY KEY (`id`))

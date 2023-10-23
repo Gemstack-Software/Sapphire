@@ -1,0 +1,9 @@
+node_modules/
+vendor/
+.temp/
+resources/~temp
+resources/~trash
+fonts/
+package-lock.json
+webpack.mix.js
+mix-manifest.json

@@ -1,0 +1,187 @@
+.button {
+    padding: 10px;
+    margin: 0px;
+    border-radius: 8px;
+
+    outline: 0px;
+    border: 3px solid $theme;
+    background: rgba($theme, 0.05);
+    color: #fff;
+    box-shadow: 0 0 8px #0008;
+
+    display: inline-block;
+    cursor: pointer;
+    transition: .225s;
+
+    .fa-solid:not(.default), 
+    .fa-bold:not(.default), 
+    .fa-regular:not(.default) {
+        margin-left: 8px;
+    }
+
+    .left-icon {
+        margin-right: 8px;
+    }
+
+    &.danger {
+        border-color: $danger;
+        background: rgba($danger, 0.05);
+    }
+
+    &.success {
+        border-color: $success;
+        background: rgba($success, 0.05);
+    }
+
+    &:disabled {
+        border-color: #999;
+        background: rgba(#999, 0.05);
+    }
+
+    &:hover {
+        box-shadow: 0 0 8px #0077dd;
+        border-color: $theme;
+        color: $theme;
+        
+        &.danger {
+            box-shadow: 0 0 8px darken($danger, 5%);
+            border-color: $danger;
+            color: $danger;
+        }
+
+        &.success {
+            box-shadow: 0 0 8px darken($success, 5%);
+            border-color: $success;
+            color: $success;
+        }
+
+        &:disabled {
+            box-shadow: 0 0 8px #777;
+            border-color: #999;
+            color: #999;
+        }
+    }
+}
+
+.button-icon {
+    border-radius: 8px;
+    border: 0;
+    outline: 0;
+    background: 0;
+    padding: 10px;
+
+    width: 45px;
+    height: 45px;
+
+    text-align: center;
+
+    color: $font-color;
+    font-size: 20px;
+
+    cursor: pointer;
+    transition: .225s;
+
+    &:hover, &.active {
+        background: #fff2;
+        color: $theme;
+    }
+
+    &.mb {
+        margin-bottom: 4px;
+    }
+}
+
+.button-small {
+    border: 0;
+    outline: 0;
+    background: 0;
+    color: $font-color;
+    cursor: pointer;
+    font-size: 18px;
+    transition: .225s;
+
+    &:hover {
+        color: #888;
+    }
+
+    &.danger:hover {
+        color: $danger;
+    }
+}
+
+.button-slim {
+    background: 0;
+    color: $font-color;
+
+    border: 0;
+    border-right: 1px solid #fff8;
+    outline: 0;
+    padding: 4px 12px;
+    
+    transition: .225s;
+    cursor: pointer;
+
+    em {
+        margin-left: 8px;
+    }
+
+    &:hover, &.active {
+        background: rgba($theme, 0.05);
+        color: $theme;
+    }
+}
+
+.button-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.button-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .button {
+        margin: 0 8px;
+    }
+}
+
+.button-tile {
+    display: block;
+    cursor: pointer;
+    transition: .225s;
+    font-size: 18px;
+
+    width: 41px;
+    height: 41px;
+    margin: 0px;
+    margin-top: -10px;
+    border: 0px;
+
+    background: $theme;
+    color: $font-color;
+    text-shadow: 1px 1px $background-color, -1px -1px $background-color, -1px 1px $background-color, 1px -1px $background-color;
+
+    &.success {
+        background: $success;
+
+        &:hover {
+            background: darken($success, 10%);
+        }
+    }
+
+    &.danger {
+        background: $danger;
+        
+        &:hover {
+            background: darken($danger, 10%);
+        }
+    }
+}

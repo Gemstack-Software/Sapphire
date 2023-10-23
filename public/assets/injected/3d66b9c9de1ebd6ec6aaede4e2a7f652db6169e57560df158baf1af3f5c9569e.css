@@ -1,0 +1,9 @@
+.analytics-container .analytics-tiles-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.analytics-container .analytics-tiles-container .info-box {
+  margin-right: 16px;
+}

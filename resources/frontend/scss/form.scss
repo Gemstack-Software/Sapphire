@@ -1,0 +1,118 @@
+.form {
+    .form-input, .form-textarea {
+        width: 100%;
+        padding: 12px;
+        margin-top: 24px;
+
+        display: block;
+        outline: 0;
+        border: 0;
+        background: $background-color;
+        background: rgba($background-color-lighten, 0.2); 
+
+        border-bottom: 3px solid $theme;
+        border-radius: 0px;
+        color: $font-color;
+
+        option {
+            background: rgba($background-color-lighten, 1);
+        }
+    }
+
+    .form-textarea {
+        min-height: 160px;
+        resize: none;
+    }
+
+    .form-checkbox {
+        display: block;
+        position: relative;
+        appearance: none;
+        margin-top: 8px;
+        cursor: pointer;
+
+        &::before {
+            content: "";
+            display: block;
+
+            border-radius: 4px;
+            width: 64px;
+            height: 32px;
+
+            background: rgba($background-color-lighten, 1);
+            box-shadow: 0 0 8px #0008;
+        }
+
+        &::after {
+            display: block;
+            content: "";
+            transition: .225s;
+
+            position: absolute;
+            top: 4px;
+            left: 4px;
+
+            background: $danger;
+
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+        }
+
+        &:checked::after {
+            left: 36px;
+            background: $success;
+        }
+    }
+
+    .form-label {
+        display: block;
+        margin-top: 12px;
+        margin-bottom: -16px;
+        font-size: 20px;
+        color: #aaa;
+    }
+
+    .input-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        
+        margin-top: 16px;
+
+        .form-input {
+            margin-top: 0px!important;
+        }
+
+        .button {
+            margin-left: 10px;
+        }
+    }
+
+    .slim-input {
+        width: 100%;
+        height: 34px;
+        padding: 8px 12px;
+        margin-top: 16px;
+
+        color: $font-color;
+        background: $background-color-lighten;
+        box-shadow: 0 0 8px #0004;
+        border: 0;
+        outline: 0;
+    }
+
+    .small-buttons-container {
+        width: 50px;
+        height: 34px;
+        margin-top: 16px;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .button-small {
+            margin-left: 8px;
+        }
+    }
+}

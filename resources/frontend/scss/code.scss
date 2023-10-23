@@ -1,0 +1,52 @@
+.code {
+    width: 100%;
+    padding: 0px;
+    margin-top: 16px;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    background: $background-color-lighten;
+    box-shadow: 0 0 8px #0008;
+
+    .padding {
+        padding: 12px!important;
+        user-select: all!important;
+    }
+
+    .code-orange {
+        padding: 12px;
+        border-radius: 8px;
+
+        background: $orange;
+        color: $background-color-lighten;
+    }
+
+    .code-danger {
+        padding: 12px;
+        border-radius: 8px;
+        
+        background: $danger;
+        color: $background-color-lighten;
+    }
+}
+
+.code-textarea {
+    width: 100%;
+    min-height: 300px;
+    margin: 16px 0;
+    padding: 12px;
+    font-size: 18px;
+
+    border: 0;
+    border-radius: 0px;
+    outline: 0;
+
+    box-shadow: 0 0 8px #0008;
+    background: $background-color-lighten;
+    color: $font-color;
+
+    resize: none;
+}

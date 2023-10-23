@@ -1,0 +1,44 @@
+{
+    "collection": {
+        "info": {
+            "uuid": "380261da-ef90-4957-9f19-cb88488bd7bd",
+            "id": "Cafes",
+            "display_name": "Cafes",
+            "single_name": "Cafe" 
+        },
+        "schema": {
+            "info": {
+                "id": false,
+                "uuid": true,
+                "name": true,
+                "created_at": true,
+                "created_by": true,
+                "updated_at": true,
+                "updated_by": true
+            },
+            "content": {
+                "description": {
+                    "type": "MediumText",
+                    "max_size": 512,
+                    "value": null
+                },
+                "gallery": {
+                    "type": "ImageCollection",
+                    "value": []
+                },
+                "thumbnail": {
+                    "type": "Image",
+                    "value": null
+                },
+                "showing_video": {
+                    "type": "Video",
+                    "value": null
+                }
+            },
+            "components": {
+                
+            }
+        },
+        "contents": []
+    }
+}

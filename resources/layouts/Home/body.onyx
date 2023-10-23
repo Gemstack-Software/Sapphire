@@ -1,0 +1,16 @@
+<?php use Sapphire\Page\Page; ?>
+
+<div class="body">
+    <div class="welcome">
+        #component("Logo")
+
+        <h3 class="welcome-subheader">{Page::Current()->GetSubname()}</h3>
+        <h1 class="welcome-header">{Page::Current()->GetName()}</h1>
+    </div>
+
+    <div class="flex">
+        <div class="tiles">
+            #component("Tiles")
+        </div>
+    </div>
+</div>

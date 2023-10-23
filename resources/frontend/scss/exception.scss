@@ -1,0 +1,79 @@
+.exception {
+    .exception-topbar {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        border-bottom: 1px solid #fff4;
+        padding: 32px;
+
+        .exception-logo {
+            width: 64px;
+            height: 64px;
+
+            margin-right: 16px;
+        }
+
+        .exception-header {
+            font-size: 40px;
+        }
+    }
+
+    .exception-content {
+        padding: 32px;
+
+        .exception-subheader {
+            font-size: 24px;
+        }
+
+        .lines-container {
+            position: relative;
+
+            .lines {
+                font-family: monospace;
+                font-size: 18px;
+    
+                margin-top: 32px;
+                padding: 8px 0;
+    
+                background: #0002;
+    
+                .line {
+                    display: block;
+                    font-family: monospace;
+    
+                    &:hover {
+                        background: #0004;
+                    }
+    
+                    &.active {
+                        background: #0003;
+                        color: $theme;
+                    }
+                    
+                    
+                    .line-number {
+                        font-family: monospace;
+                        padding: 0 8px;
+                    }
+                }
+            }
+
+            .file-extension {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+
+                font-size: 14px;
+                padding: 8px;
+                
+                border-radius: 12px;
+                background: $theme;
+            }
+        }
+    }
+
+    .exception-footer {
+        border-top: 1px solid #fff4;
+    }
+}

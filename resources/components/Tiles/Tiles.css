@@ -1,0 +1,10 @@
+@ .tiles {
+    background: #0000;
+    margin: 0 auto;
+    width: 816px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

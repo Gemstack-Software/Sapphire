@@ -1,0 +1,12 @@
+<?php
+    require_once('../libs/onyx/Constants/Constants.php');
+    require_once('../libs/onyx/Expressionable/ExpressionableInterface.php');
+    require_once('../libs/onyx/Expressionable/Concerns/Expressionable.php');
+    require_once('../libs/onyx/Error/ErrorInterface.php');
+    require_once('../libs/onyx/Error/Concerns/Error.php');
+    require_once('../libs/onyx/Valid/ValidInterface.php');
+    require_once('../libs/onyx/Valid/Concerns/Valid.php');
+    require_once('../libs/onyx/Compiler/Concerns/Lines.php');
+    require_once('../libs/onyx/Compiler/Concerns/Buffer.php');
+    require_once('../libs/onyx/Compiler/CompilerInterface.php');
+    require_once('../libs/onyx/Compiler/Compiler.php');

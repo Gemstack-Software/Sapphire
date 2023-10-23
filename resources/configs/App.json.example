@@ -1,0 +1,23 @@
+{
+    "General": {
+        "Application name": "",
+        "Application version": "0.10.0",
+        "Application thumbnail id": ""
+    },
+    "Internationalization": {
+        "Locales collection": "Translations",
+        "Default locale": "en_us"
+    },
+    "Optional features": {
+        "Session lifetime": 86400,
+        "Custom APIs": true
+    },
+    "Resources": {
+        "Link component styles with <link>": true
+    },
+    "Production": {
+        "Platform mode": "Development",
+        "Minify response": false,
+        "Minify compiled resources": false
+    }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "sapphire",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aos": "^2.3.4",
+    "apexcharts": "^3.43.2-0",
+    "billboard.js": "^3.9.4",
+    "chart.js": "^4.4.0",
+    "laravel-mix": "^6.0.49",
+    "monaco-editor": "^0.43.0",
+    "uuid": "^9.0.0",
+    "vue": "^3.3.4",
+    "vue-chartjs": "^5.2.0",
+    "vue-tippy": "^6.3.1"
+  },
+  "devDependencies": {
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.65.1",
+    "sass-loader": "^12.1.0",
+    "sass-resources-loader": "^2.2.5",
+    "vue-loader": "^16.2.0"
+  }
+}

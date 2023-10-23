@@ -1,0 +1,23 @@
+.content-builder {
+    width: 100%;
+
+    .padding {
+        padding: 20px 32px;
+    }
+
+    .big-header {
+        font-size: 40px;
+    }
+
+    .subtext {
+        font-size: 24px;
+        margin-top: 24px;
+        color: #aaa;
+    }
+
+    .quick-header {
+        font-size: 14px;
+        color: #888;
+        text-transform: uppercase;
+    }
+}

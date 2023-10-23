@@ -1,0 +1,9 @@
+-- This is component body --
+<div class="tiles">
+    #foreach($props->tiles as $tile)
+        #component("Tile", $tile)
+    #endforeach
+</div>
+
+-- Linking styles --
+#{Styles(style: 'Tiles.css', scope: true)}

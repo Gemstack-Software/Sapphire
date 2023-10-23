@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=REM&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'REM', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+
+    box-shadow: inset 0 64px 128px #0004;
+    background: rgb(16 16 17);
+    color: #ccc;
+}
+
+.body {
+    padding: 96px;
+    padding-top: 48px;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.welcome .welcome-subheader {
+    margin-top: 24px;
+    font-size: 24px;
+}
+
+.welcome .welcome-header {
+    font-size: 72px;
+    color: #0099ff;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 64px;
+}
