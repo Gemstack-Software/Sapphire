@@ -106,8 +106,8 @@
 
             $trash_identifier = uniqid();
 
-            $previous_path_agent    = new PathConstructor("@/resources/collections/$name.json");
-            $next_path_agent        = new PathConstructor("@/resources/~trash/collections/$name-$trash_identifier.json"); 
+            $previous_path_agent    = new PathConstructor("@resources/collections/$name.json");
+            $next_path_agent        = new PathConstructor("@resources/~trash/collections/$name-$trash_identifier.json"); 
 
             File::RenameFile($previous_path_agent->GetReal(), $next_path_agent->GetReal());
 

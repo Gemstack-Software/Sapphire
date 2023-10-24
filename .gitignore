@@ -1,8 +1,8 @@
 node_modules/
 vendor/
 .temp/
-resources/~temp
-resources/~trash
+resources/~temp/*
+resources/~trash/collections/*
 fonts/
 package-lock.json
 webpack.mix.js
