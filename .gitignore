@@ -3,6 +3,9 @@ vendor/
 .temp/
 resources/~temp/*
 resources/~trash/collections/*
+public/assets/injected/*
+public/assets/styles/linked/*
+public/assets/uploads/*
 fonts/
 package-lock.json
 webpack.mix.js
