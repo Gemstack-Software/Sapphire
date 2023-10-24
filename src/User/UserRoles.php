@@ -3,14 +3,14 @@
 
     trait UserRoles {
         public function IsSuperAdmin(): bool {
-            return $this->role === 'Super Admin';
+            return $this->GetRole() === 'Super Admin';
         }
 
         public function IsAdmin(): bool {
-            return $this->role === 'Admin';
+            return $this->GetRole() === 'Admin';
         }
 
         public function IsModerator(): bool {
-            return $this->role === 'Moderator';
+            return $this->GetRole() === 'Moderator';
         }
     }

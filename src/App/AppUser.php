@@ -8,6 +8,9 @@
          * Returns current user
          */
         public function GetUser(): User {
-            return $this->user;
+            if(isset($this->user))
+                return $this->user;
+
+            return User::ById(0);
         }
     }

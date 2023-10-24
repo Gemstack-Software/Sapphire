@@ -15,7 +15,10 @@
         }
 
         public function GetRole(): string {
-            return $this->role;
+            if(isset($this->role))
+                return $this->role;
+    
+            return "Guest";
         }
 
         public function GetCreatedAt(): string {
