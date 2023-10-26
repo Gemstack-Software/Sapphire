@@ -7,13 +7,8 @@
          * 
          * Returns path to asset uploaded to Sapphire
          */
-        public function Asset(string $label = null): null | string {
+        public function Asset(string $label = null, int $id = null): null | string {
             global $app;
-
-            ///////////////////////////////////////////////////////////
-            // Check if label is passed
-            ///////////////////////////////////////////////////////////
-            if(!$label) return null;
 
             ///////////////////////////////////////////////////////////
             // Getting the database
@@ -22,14 +17,23 @@
             $table = $database->GetTable('sapphire_assets');
 
             ///////////////////////////////////////////////////////////
+            // Asset by id
+            ///////////////////////////////////////////////////////////
+            if(!$label) {
+                $asset = $table->Where([
+                    ["id", "=", $id]
+                ]);
+
+                return !$asset ? null : $asset->filename;
+            }
+
+            ///////////////////////////////////////////////////////////
             // Getting the asset
             ///////////////////////////////////////////////////////////
             $asset = $table->Where([
                 ["label", "=", $label]
             ]);
 
-            if(!$asset) return null;
-
-            return $asset->filename;
+            return !$asset ? null : $asset->filename;
         }
     }
