@@ -2,6 +2,15 @@
     namespace Onyx\Compiler\Concerns;
 
     trait Lines {
+        public function ParseAssignTagExpr(string $line_buffer): string {
+            return preg_replace_callback(ONYX_ASSIGN_TAG_REGEX, function($tags) {
+                foreach($tags as $tag) {
+                    $tag = substr($tag, 8, strlen($tag) - 9);
+                    return "<?php $tag; ?>";
+                }
+            }, $line_buffer);  
+        }
+
         public function ParseContentTagExpr(string $line_buffer): string {
             return preg_replace_callback(ONYX_CONTENT_TAG_REGEX, function($tags) {
                 foreach($tags as $tag) {
@@ -102,6 +111,7 @@
         }
 
         public function TransformLine(int $line_number, string $line_buffer): string {
+            if($this->HasExpression($line_buffer, ONYX_ASSIGN_TAG_REGEX)) $line_buffer = $this->ParseAssignTagExpr($line_buffer);
             if($this->HasExpression($line_buffer, ONYX_COMMENT_TAG_REGEX)) $line_buffer = $this->ParseCommentTagExpr($line_buffer);
             if($this->HasExpression($line_buffer, ONYX_METHOD_TAG_REGEX)) $line_buffer = $this->ParseMethodTagExpr($line_buffer);
             if($this->HasExpression($line_buffer, ONYX_CONTENT_TAG_REGEX)) $line_buffer = $this->ParseContentTagExpr($line_buffer);
