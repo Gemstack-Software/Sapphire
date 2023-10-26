@@ -3,6 +3,7 @@
     define("ONYX_COMMENT_TAG_REGEX", "(--[^-]*--)");
     define("ONYX_CONTENT_TAG_REGEX", "({[^}]*})");
     define("ONYX_METHOD_TAG_REGEX", "(\#{[^}]*})");
+    define("ONYX_ASSIGN_TAG_REGEX", "(@assign{[^}]*})");
     define("ONYX_IF_TAG_REGEX", "(\#if\([^\)]*\))");
     define("ONYX_ELSEIF_TAG_REGEX", "(\#elseif\([^\)]*\))");
     define("ONYX_FOREACH_TAG_REGEX", "(\#foreach\([^\)]*\))");
