@@ -70,7 +70,7 @@
          * 
          * Returns Page children
          */
-        public static function GetChildren(int $parent_id): Page | null {
+        public static function GetChildren(int $parent_id): array {
             global $app;
 
             $database = $app->GetDatabaseHandler();
