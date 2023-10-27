@@ -72,4 +72,13 @@
         public function GetLayout(): Layout | null {
             return Layout::Init($this->layout);
         }
+
+        /**
+         * @name Children
+         * 
+         * Returns all children pages
+         */
+        public function Children(): array {
+            return static::GetChildren($this->GetId());
+        }
     }
