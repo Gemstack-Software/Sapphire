@@ -25,6 +25,8 @@
         public function Render(\stdClass | array $data = []): void {
             global $app;
 
+            if($data === []) $data = $this->params;
+
             ///////////////////////////////////////////////////////////
             // Settuping onyx compiler
             ///////////////////////////////////////////////////////////

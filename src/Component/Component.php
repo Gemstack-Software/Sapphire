@@ -4,6 +4,7 @@
     use Sapphire\Component\ComponentRenderer;
     use Sapphire\Component\ComponentEvents;
     use Sapphire\Compilers\OnyxCompiler;
+    use Sapphire\Json\Json;
 
     /**
      * + =================================================== +
@@ -33,6 +34,18 @@
         protected string $component_folder = "";
 
         /**
+         * Component params passed by
+         */
+        public \stdClass | array $params;
+
+        /**
+         * Set component params
+         */
+        public function SetParams(\stdClass | array $params): void {
+            $this->params = $params;
+        }
+
+        /**
          * Set path of component's folder
          */
         public function SetComponentFolderPath(string $path): void {
@@ -51,5 +64,6 @@
          */
         public function __construct() {
             $this->component_id = uniqid();
+            $this->params = [];
         }
     }

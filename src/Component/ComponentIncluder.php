@@ -25,10 +25,13 @@
             // Set path to component's folder
             $component->SetComponentFolderPath($path);
 
+            // Pass props
+            $component->SetParams($data);
+
             // Before rendering we should trigger Mounted event
             $component->Mounted();
 
             // Rendering component
-            $component->Render($data);
+            $component->Render();
         }
     }
