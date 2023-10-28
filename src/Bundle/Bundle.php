@@ -88,6 +88,7 @@
     require_once('../src/Serialize/Serialize.php');
 
     require_once('../src/Collection/Concerns/SchemaItem.php');
+    require_once('../src/Collection/Concerns/Schemas/MixedArray.php');
     require_once('../src/Collection/Concerns/Schemas/Text.php');
     require_once('../src/Collection/Concerns/Schemas/Date.php');
     require_once('../src/Collection/Concerns/Schemas/ShortText.php');

@@ -27,6 +27,11 @@
     const Select = (id) => $emit("AssetSelect", id)
 
     const search = ref('')
+
+    const IsVideo = (filename) => {
+        console.log(filename, filename.split('.').pop() === 'mp4')
+        return filename.split('.').pop() === 'mp4'
+    }
 </script>
 
 <template>
@@ -43,7 +48,12 @@
                 :title="asset.label"
                 @click="Select(asset.id)">
                 
-                <img :src="asset.filename" alt="">
+                <img :src="asset.filename" :alt="asset.label" v-if="!IsVideo(asset.filename)">
+
+                <div class="asset-video" v-else>
+                    <video :src="asset.filename"></video>
+                    {{ asset.label }}
+                </div>
 
             </div>
         </div>
@@ -89,6 +99,14 @@
 
                     img {
                         max-height: 72px;
+                    }
+                }
+
+                .asset-video {
+                    width: 96px;
+
+                    video {
+                        width: 96px;
                     }
                 }
             }

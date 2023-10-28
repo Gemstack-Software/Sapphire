@@ -126,6 +126,15 @@
                     @OnSelect="SelectSchemaItem"
                 />
 
+                <SchemaItem 
+                    title="Mixed Array"
+                    type="MixedArray"
+                    icon="fa-solid fa-layer-group"
+                    color="#0099ff"
+                    :active="'MixedArray' === selected"
+                    @OnSelect="SelectSchemaItem"
+                />
+
             </div>
 
             <div class="modal__footer top-flex padding">

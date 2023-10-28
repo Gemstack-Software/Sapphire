@@ -1124,6 +1124,91 @@ h4.subheader[data-v-120fab04] {
 .asset-selector .assets-container .asset.active img[data-v-89a4f51a] {
   max-height: 72px;
 }
+.asset-selector .assets-container .asset .asset-video[data-v-89a4f51a] {
+  width: 96px;
+}
+.asset-selector .assets-container .asset .asset-video video[data-v-89a4f51a] {
+  width: 96px;
+}
+@keyframes Blinking-78e581d4 {
+0% {
+    opacity: 1;
+}
+50% {
+    opacity: 0.3;
+}
+100% {
+    opacity: 1;
+}
+}
+.asset-selector[data-v-78e581d4] {
+  background: rgba(24, 24, 27, 0.8);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5333333333);
+  padding: 8px;
+}
+.asset-selector .asset-selector__topbar[data-v-78e581d4] {
+  margin-bottom: 32px;
+}
+.asset-selector .asset-selector__topbar .form-input[data-v-78e581d4] {
+  margin-top: 0px;
+}
+.asset-selector .assets-container[data-v-78e581d4] {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  max-height: 100px;
+  overflow-y: auto;
+}
+.asset-selector .assets-container .asset[data-v-78e581d4] {
+  margin-bottom: 16px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+.asset-selector .assets-container .asset img[data-v-78e581d4] {
+  max-height: 96px;
+}
+.asset-selector .assets-container .asset.active[data-v-78e581d4] {
+  padding: 8px;
+  border: 4px solid #0099ff;
+}
+.asset-selector .assets-container .asset.active img[data-v-78e581d4] {
+  max-height: 72px;
+}
+.asset-selector .assets-container .asset .asset-video[data-v-78e581d4] {
+  width: 96px;
+}
+.asset-selector .assets-container .asset .asset-video video[data-v-78e581d4] {
+  width: 96px;
+}
+@keyframes Blinking-7d821eb6 {
+0% {
+    opacity: 1;
+}
+50% {
+    opacity: 0.3;
+}
+100% {
+    opacity: 1;
+}
+}
+.mixed-array__selector .mixed-array__topbar[data-v-7d821eb6] {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.mixed-array__selector .mixed-array__contents .mixed-array__content[data-v-7d821eb6] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mixed-array__selector .mixed-array__contents .mixed-array__content .form-input[data-v-7d821eb6] {
+  margin-top: 0px;
+}
+.mixed-array__selector .mixed-array__contents .mixed-array__content .button-small[data-v-7d821eb6] {
+  display: block;
+  margin: 0 8px;
+}
 @keyframes Blinking-9a5465d6 {
 0% {
     opacity: 1;

@@ -14,6 +14,7 @@
     use Sapphire\Collection\Concerns\Schemas\Video;
     use Sapphire\Collection\Concerns\Schemas\VideoCollection;
     use Sapphire\Collection\Concerns\Schemas\MultimediaCollection;
+    use Sapphire\Collection\Concerns\Schemas\MixedArray;
 
     /**
      * Class to help building schema items
@@ -38,6 +39,7 @@
                 'Video' => new Video,
                 'VideoCollection' => new VideoCollection,
                 'MultimediaCollection' => new MultimediaCollection,
+                'MixedArray' => new MixedArray,
                 default => null
             };
         }

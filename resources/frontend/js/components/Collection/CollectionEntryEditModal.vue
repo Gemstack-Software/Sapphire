@@ -5,6 +5,8 @@
     import { Post } from '../../utils/Fetch'
     import { Notify } from '../../utils/Notifications'
     import AssetSelector from '../Assets/Selector.vue'
+    import MultiSelector from '../Assets/MultiSelector.vue'
+    import MixedArraySelector from '../MixedArray/MixedArraySelector.vue'
 
     const { entry, collection } = defineProps({
         entry: Object,
@@ -77,9 +79,40 @@
 
                             <div class="item__video form" v-else-if="Type(GetAttributeType(key)) === 'Video'">
                                 <AssetSelector 
-                                    :Selected="entry.attributes[attributeName]"
+                                    :Selected="entry.attributes[attributeName] "
                                     :Types="['mp4']"
-                                    @AssetSelect="(asset) => entry.attributes[attributeName] = asset"
+                                    @AssetSelect="(asset) => entry.attributes[attributeName]  = asset"
+                                />
+                            </div>
+
+                            <div class="item__date form" v-else-if="Type(GetAttributeType(key)) === 'ImageCollection'">
+                                <MultiSelector 
+                                    :Selected="entry.attributes[attributeName]  || []"
+                                    :Types="['png','jpg','jpeg','svg','webp','bmp']"
+                                    @AssetSelect="(asset) => entry.attributes[attributeName]  = asset"
+                                />
+                            </div>
+
+                            <div class="item__video form" v-else-if="Type(GetAttributeType(key)) === 'VideoCollection'">
+                                <MultiSelector 
+                                    :Selected="entry.attributes[attributeName]  || []"
+                                    :Types="['mp4']"
+                                    @AssetSelect="(asset) => entry.attributes[attributeName]  = asset"
+                                />
+                            </div>
+
+                            <div class="item__video form" v-else-if="Type(GetAttributeType(key)) === 'MultimediaCollection'">
+                                <MultiSelector 
+                                    :Selected="entry.attributes[attributeName]  || []"
+                                    :Types="['png','jpg','jpeg','svg','webp','bmp', 'mp4']"
+                                    @AssetSelect="(asset) => entry.attributes[attributeName]  = asset"
+                                />
+                            </div>
+
+                            <div class="item__video form" v-else-if="Type(GetAttributeType(key)) === 'MixedArray'">
+                                <MixedArraySelector 
+                                    :Selected="entry.attributes[attributeName]  ? entry.attributes[attributeName]  : []"
+                                    @ArraySelect="(mixedArray) => entry.attributes[attributeName]  = mixedArray"
                                 />
                             </div>
                         </div>

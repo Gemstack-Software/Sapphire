@@ -6,6 +6,8 @@
     import { Type } from '../../utils/Schema'
     import { Notify, NotifyRed } from '../../utils/Notifications'
     import AssetSelector from '../Assets/Selector.vue'
+    import MultiSelector from '../Assets/MultiSelector.vue'
+    import MixedArraySelector from '../MixedArray/MixedArraySelector.vue'
 
     const { collection } = defineProps({
         collection: Object
@@ -59,7 +61,7 @@
                     <div class="entry-scaffolding__item border-bottom" v-for="[schemaName, schemaItem] in schemaArray" :key="schemaName">
                         
                         <div class="loop__item" v-if="schemaItem">
-                            <label class="entry-scaffolding__name quick-header" :for="schemaName">{{ FormatItemName(schemaName) }}</label>
+                            <label class="entry-scaffolding__name quick-header" :title="schemaName" :for="schemaName">{{ FormatItemName(schemaName) }}</label>
 
                             <div class="item__string form" v-if="Type(schemaItem.type) === 'String'">
                                 <input type="text" class="form-input" :id="schemaName" v-model="fillableEntryData[schemaName]">
@@ -86,6 +88,37 @@
                                     :Selected="fillableEntryData[schemaName]"
                                     :Types="['mp4']"
                                     @AssetSelect="(asset) => fillableEntryData[schemaName] = asset"
+                                />
+                            </div>
+
+                            <div class="item__date form" v-else-if="Type(schemaItem.type) === 'ImageCollection'">
+                                <MultiSelector 
+                                    :Selected="fillableEntryData[schemaName] || []"
+                                    :Types="['png','jpg','jpeg','svg','webp','bmp']"
+                                    @AssetSelect="(asset) => fillableEntryData[schemaName] = asset"
+                                />
+                            </div>
+
+                            <div class="item__video form" v-else-if="Type(schemaItem.type) === 'VideoCollection'">
+                                <MultiSelector 
+                                    :Selected="fillableEntryData[schemaName] || []"
+                                    :Types="['mp4']"
+                                    @AssetSelect="(asset) => fillableEntryData[schemaName] = asset"
+                                />
+                            </div>
+
+                            <div class="item__video form" v-else-if="Type(schemaItem.type) === 'MultimediaCollection'">
+                                <MultiSelector 
+                                    :Selected="fillableEntryData[schemaName] || []"
+                                    :Types="['png','jpg','jpeg','svg','webp','bmp', 'mp4']"
+                                    @AssetSelect="(asset) => fillableEntryData[schemaName] = asset"
+                                />
+                            </div>
+
+                            <div class="item__video form" v-else-if="Type(schemaItem.type) === 'MixedArray'">
+                                <MixedArraySelector 
+                                    :Selected="fillableEntryData[schemaName] ? fillableEntryData[schemaName] : []"
+                                    @ArraySelect="(mixedArray) => fillableEntryData[schemaName] = mixedArray"
                                 />
                             </div>
                         </div>
