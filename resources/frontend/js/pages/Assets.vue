@@ -5,7 +5,9 @@
     import AssetsUploader from '../components/Assets/Uploader.vue'
     import Asset from '../components/Assets/Asset.vue'
 
+    /////////////////////////////////
     // Obtaining assets
+    /////////////////////////////////
     const assets = ref([])
     const assetsError = ref("")
     const isLoading = ref(true)
@@ -27,8 +29,15 @@
 
     GetAssets()
 
+    /////////////////////////////////////
     // Events
+    /////////////////////////////////////
     const OnUpload = () => GetAssets()
+
+    /////////////////////////////////////
+    // Searcher
+    /////////////////////////////////////
+    const search = ref("")
 </script>
 
 <template>
@@ -55,14 +64,23 @@
                     />
                 </div>
 
+                <div class="assets-search__container padding border-bottom form">
+                    <input type="text" placeholder="Search" class="form-input asset-search__input" v-model="search">
+                </div>
+
                 <div class="assets-container padding">
-                    
                     <div class="assets-container__inner">
-                        <Asset 
+                        <div 
                             v-for="asset in assets" 
                             :key="asset"
-                            :asset="asset"
-                            @Update="OnUpload" />
+                            class="asset__root"
+                            :style="{ display: (asset.label.toLowerCase().indexOf(search.toLowerCase()) != -1) ? 'block' : 'none' }"
+                        >
+                            <Asset 
+                                :asset="asset"
+                                @Update="OnUpload" 
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,8 +98,18 @@
                 margin-top: 32px;
             }
 
-            .assets-container {
+            .assets-search__container {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
 
+                .asset-search__input {
+                    width: 300px;
+                    margin: 0;
+                }
+            }
+
+            .assets-container {
                 .assets-container__inner {
                     display: flex;
                     justify-content: space-between;

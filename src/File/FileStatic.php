@@ -39,6 +39,10 @@
          * Renames file
          */
         public static function RenameFile(string $from, string $to): void {
+            if(!is_dir(dirname($to))) {
+                static::CreateNewFolder(dirname($to));
+            }
+
             rename($from, $to);
         }
 

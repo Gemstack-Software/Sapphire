@@ -29,7 +29,6 @@
     const search = ref('')
 
     const IsVideo = (filename) => {
-        console.log(filename, filename.split('.').pop() === 'mp4')
         return filename.split('.').pop() === 'mp4'
     }
 </script>

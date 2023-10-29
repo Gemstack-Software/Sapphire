@@ -43,14 +43,25 @@
     const maxWidth = ref(0)
 
     onMounted(() => {
-        const image = document.querySelector(`#asset-${uuid}`)
+        const image = document.querySelector(`img#asset-${uuid}`)
+        const video = document.querySelector(`video#asset-${uuid}`)
 
-        image.addEventListener('load', () => {
+        image?.addEventListener('load', () => {
             const imageBoundings = image.getBoundingClientRect()
 
             maxWidth.value = imageBoundings.width
         })
+
+        video?.addEventListener('loadeddata', () => {
+            const videoBoundings = video.getBoundingClientRect()
+
+            maxWidth.value = videoBoundings.width
+        })
     })
+
+    const IsVideo = (filename) => {
+        return filename.split('.').pop() === 'mp4'
+    }
 </script>
 
 <template>
@@ -60,7 +71,9 @@
         </button>
 
         <a :href="asset.filename" target="_blank" data-aos="zoom-in">
-            <img class="asset-image" :src="asset.filename" :alt="asset.label" :id="`asset-${uuid}`">
+            <img class="asset-image" :src="asset.filename" :alt="asset.label" :id="`asset-${uuid}`" v-if="!IsVideo(asset.filename)">
+
+            <video :src="asset.filename" :id="`asset-${uuid}`" v-else></video>
         </a>
        
         <div class="asset-bottom" data-aos="flip-up">

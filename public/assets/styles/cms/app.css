@@ -1576,6 +1576,15 @@ h4.subheader[data-v-120fab04] {
 .assets .assets-body .assets-loader[data-v-9b7168e2] {
   margin-top: 32px;
 }
+.assets .assets-body .assets-search__container[data-v-9b7168e2] {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.assets .assets-body .assets-search__container .asset-search__input[data-v-9b7168e2] {
+  width: 300px;
+  margin: 0;
+}
 .assets .assets-body .assets-container .assets-container__inner[data-v-9b7168e2] {
   display: flex;
   justify-content: space-between;
