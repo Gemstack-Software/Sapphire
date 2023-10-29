@@ -82,4 +82,45 @@
 
             return $pages;    
         }
+
+        /**
+         * @name GetParent
+         * 
+         * Returns Page parent
+         */
+        public static function GetParent(int $id): Page | null { 
+            global $app;
+
+            $database = $app->GetDatabaseHandler();
+            $table = $database->GetTable('sapphire_pages');
+
+            $page = Page::ById($id);
+
+            return static::From($table->Where([
+                ["id", "=", $page->GetParentId()]
+            ]));
+        }
+
+        /**
+         * @name GetSiblings
+         * 
+         * Returns Page siblings
+         */
+        public static function GetSiblings(int $id): array {
+            global $app;
+            
+            $database = $app->GetDatabaseHandler();
+            $table = $database->GetTable('sapphire_pages');
+
+            $page = static::GetParent($id);
+            $array = [];
+
+            foreach($page->Children() as $child) {
+                if($child->GetId() == $id) continue;
+
+                $array[] = $child;
+            }
+
+            return $array;
+        }
     }

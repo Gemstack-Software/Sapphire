@@ -81,4 +81,22 @@
         public function Children(): array {
             return static::GetChildren($this->GetId());
         }
+        
+        /**
+         * @name Parent
+         * 
+         * Returns Page parent
+         */
+        public function Parent(): Page | null { 
+            return static::GetParent($this->GetId());
+        }
+
+        /**
+         * @name Siblings
+         * 
+         * Returns Page siblings
+         */
+        public function Siblings(): array {
+            return static::GetSiblings($this->GetId());
+        }
     }
