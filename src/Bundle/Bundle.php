@@ -135,6 +135,7 @@
     require_once('../src/Layout/Layout.php');
 
     require_once('../src/Page/PageStatic.php');
+    require_once('../src/Page/PageProperties.php');
     require_once('../src/Page/PageSerialize.php');
     require_once('../src/Page/PageConstruct.php');
     require_once('../src/Page/PageGetters.php');

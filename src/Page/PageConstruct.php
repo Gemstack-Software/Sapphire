@@ -22,6 +22,8 @@
             $this->url = uniqid();
             $this->layout = "Default";
             $this->is_home = false;
+            $this->collection_id = "";
+            $this->collection_entry = "";
             $this->created_at = $current_date;
             $this->updated_at = $current_date;
             $this->created_by = $user->GetId();

@@ -1,10 +1,14 @@
 <script setup>
-    import UserShortcut from '../User/Shortcut.vue'
     import { onMounted, ref } from 'vue'
     import { GetFullUrl } from '../../utils/Pages'
     import { Post, Get } from '../../utils/Fetch'
     import { RemoveNumeric } from '../../utils/Object'
     import { Reload } from '../../utils/Reload'
+    import { Notify, NotifyRed } from '../../utils/Notifications'
+    import UserShortcut from '../User/Shortcut.vue'
+    import CollectionSelector from '../Collection/CollectionSelector.vue'
+    import CollectionEntrySelector from '../Collection/CollectionEntrySelector.vue'
+    import Property from './Property.vue'
 
     const { pageId, pageReloader } = defineProps({
         pageId: String | Number,
@@ -13,6 +17,7 @@
 
     const $emit = defineEmits([ "OnDelete" ])
     const error = ref('')
+    const success = ref('')
 
     // Getting the page
     const page = ref(null)
@@ -20,8 +25,10 @@
         Get(`/api/pages/id/${id}`)
             .then(res => res.json())
             .then(res => {
-                if(res.response.status === 200) 
+                if(res.response.status === 200) {
                     page.value = res.response.content
+                    GetProperties()
+                }
             })
 
         return ""
@@ -52,6 +59,12 @@
                         .then(fullUrlResponse => {
                             fullUrl.value = fullUrlResponse
                         })
+
+                    success.value = 'Successfully saved page'
+
+                    setTimeout(() => {
+                        success.value = ''
+                    }, 500)
                 }
                 else {
                     error.value = res.response.message ? res.response.message : "Error whilst saving!"
@@ -84,6 +97,47 @@
     }
 
     GetLayouts()
+
+    ///////////////////////////
+    // Selecting collections
+    ///////////////////////////
+    const SelectCollection = (collection) => page.value.collection_id = collection
+    const SelectEntry = (entry) => page.value.collection_entry = entry
+
+    /////////////////////////
+    // Getting properties
+    /////////////////////////
+    const properties = ref([])
+    const GetProperties = () => {
+        Get('/api/pages/properties/' + page.value.id)
+            .then(res => res.json())
+            .then(res => {
+                if(res.response.status === 200) {
+                    properties.value = res.response.content
+                }
+            })
+    }
+
+    const isOpenCreateProperty = ref(false)
+    const propertyName = ref('')
+
+    const OpenCreateProperty = () => isOpenCreateProperty.value = !isOpenCreateProperty.value
+    const CreateProperty = () => {
+        Post('/api/pages/create-property', {
+            id: page.value.id,
+            name: propertyName.value
+        })
+            .then(res => res.json())
+            .then(res => {
+                if(res.response.status === 200) {
+                    GetProperties()
+                    OpenCreateProperty()
+                }
+                else {
+                    Notify(res.response.message, NotifyRed, 'fas fa-exclamation-triangle')
+                }
+            })
+    }
 </script>
 
 <template>
@@ -95,50 +149,112 @@
                 <h1 class="medium-header text-overflow">{{ page.name }}</h1>
             </div>
 
-            <div class="page-editor__content padding border-bottom form">
-                <div class="data-container">
-                    <label for="page-name" class="quick-header">Name</label>
-                    <input id="page-name" type="text" class="form-input" v-model="page.name">
-                </div>
+            <div class="page-scroll">
+                <div class="page-editor__content padding border-bottom form">
+                    <h3 class="medium-header">General</h3>
 
-                <div class="data-container">
-                    <label for="page-subname" class="quick-header">Subname</label>
-                    <input id="page-subname" type="text" class="form-input" v-model="page.subname">
-                </div>
-
-                <div class="data-container">
-                    <label for="page-content" class="quick-header">Content</label>
-                    <textarea id="page-content" type="text" class="form-textarea" v-model="page.content"></textarea>
-                </div>
-
-                <div class="data-row">
                     <div class="data-container">
-                        <label for="page-url" class="quick-header">Url part</label>
-                        <input id="page-url" type="text" class="form-input" v-model="page.url">
+                        <label for="page-name" class="quick-header">Name</label>
+                        <input id="page-name" type="text" class="form-input" v-model="page.name">
                     </div>
 
                     <div class="data-container">
-                        <label for="page-layout" class="quick-header">Layout</label>
-                        <select id="page-layout" type="text" class="form-input" v-model="page.layout">
-                            <option 
-                                v-for="layout in layouts"
-                                :key="layout"
-                                :value="layout">{{ layout }}</option>
-                        </select>
+                        <label for="page-subname" class="quick-header">Subname</label>
+                        <input id="page-subname" type="text" class="form-input" v-model="page.subname">
+                    </div>
+
+                    <div class="data-container">
+                        <label for="page-content" class="quick-header">Content</label>
+                        <textarea id="page-content" type="text" class="form-textarea" v-model="page.content"></textarea>
                     </div>
                 </div>
 
-                <div class="data-container">
-                    <label for="page-home" class="quick-header">Home page</label>
-                    <input id="page-home" type="checkbox" class="form-checkbox" :checked="page.is_home == 1 || page.is_home == true || page.is_home == 'true'" @input="page.is_home = !page.is_home">
+                <div class="page-editor__rendering-and-url padding border-bottom form">
+                    <h3 class="medium-header">Rendering & Url</h3>
+
+                    <div class="data-row">
+                        <div class="data-container">
+                            <label for="page-url" class="quick-header">Url part</label>
+                            <input id="page-url" type="text" class="form-input" v-model="page.url">
+                        </div>
+
+                        <div class="data-container">
+                            <label for="page-layout" class="quick-header">Layout</label>
+                            <select id="page-layout" type="text" class="form-input" v-model="page.layout">
+                                <option 
+                                    v-for="layout in layouts"
+                                    :key="layout"
+                                    :value="layout">{{ layout }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="data-container">
+                        <label for="page-home" class="quick-header">Home page</label>
+                        <input id="page-home" type="checkbox" class="form-checkbox" :checked="page.is_home == 1 || page.is_home == true || page.is_home == 'true'" @input="page.is_home = !page.is_home">
+                    </div>
+                </div>
+
+                <div class="page-editor__props padding form">
+                    <h3 class="medium-header">Properties</h3>
+
+                    <div class="data-row">
+                        <div class="data-container">
+                            <label for="properties-collection" class="quick-header">Collection</label>
+                            
+                            <CollectionSelector 
+                                :collection="page.collection_id"
+                                @onSelected="(collection) => SelectCollection(collection)" />
+                        </div>
+
+                        <div class="data-container">
+                            <label for="" class="quick-header">Entry</label>
+
+                            <CollectionEntrySelector 
+                                :collection="page.collection_id"
+                                :value="page.collection_entry"
+                                @onSelected="(entry) => SelectEntry(entry)" />
+                        </div>
+                    </div>
+
+                    <label for="" class="quick-header">Properties</label>
+
+                    <div class="properties-container">
+                        <div class="properties-container__top">
+                            <button class="button-small" @click="OpenCreateProperty" v-if="!isOpenCreateProperty">
+                                <em class="fas fa-plus"></em>
+                            </button>
+
+                            <div class="properties-container__top-open" v-else>
+                                <input type="text" class="form-input" placeholder="Name of Property" v-model="propertyName">
+
+                                <button class="button-tile success" @click="CreateProperty">
+                                    <em class="fas fa-plus"></em>
+                                </button>
+                                <button class="button-tile danger" @click="isOpenCreateProperty = false">
+                                    <em class="fas fa-times"></em>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="properties-list">
+                            <Property 
+                                v-for="property in properties"
+                                :key="property"
+                                :property="property"
+                                @OnUpdate="GetProperties"
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="page-editor__bottom padding">
+            <div class="page-editor__bottom padding border-top">
                 <button class="button success" @click="SavePage">Save</button>
                 <button class="button danger" @click="DeletePage">Delete</button>
                 
                 <span class="page-error">{{ error }}</span>
+                <div class="page-success">{{ success }}</div>
             </div>
         </div>
 
@@ -197,28 +313,56 @@
         .page-editor__left {
             width: 100%;
 
-            .page-editor__content {
+            .page-scroll {
+                height: calc(100vh - 131px - 83px);
+                overflow-x: hidden;
                 overflow-y: auto;
 
-                .data-container {
-                    margin-bottom: 32px;
+                .medium-header {
+                    margin-bottom: 16px;
+                    font-size: 24px;
                 }
-
-                .data-row {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-
-                    .data-container {
-                        width: 48%;
-                    }
+            }
+    
+            .page-editor__bottom {
+                .button {
+                    margin-right: 8px;
                 }
             }
         }
 
-        .page-editor__bottom {
-            .button {
-                margin-right: 8px;
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .data-container {
+                width: 48%;
+            }
+        }
+
+        .data-container {
+            margin-bottom: 32px;
+        }
+
+        .properties-list {
+            margin-top: 32px;
+        }
+
+        .properties-container__top {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        
+            .properties-container__top-open {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+
+                input {
+                    margin-top: -8px;
+                    width: 300px;
+                }
             }
         }
 

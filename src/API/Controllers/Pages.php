@@ -17,7 +17,11 @@
             'full-url' => 'FullUrl',
             'save' => 'Save',
             'delete' => 'Delete',
-            'id' => 'GetById'
+            'id' => 'GetById',
+            'properties' => 'GetProperties',
+            'create-property' => 'CreateProperty',
+            'delete-property' => 'DeleteProperty',
+            'save-property' => 'SaveProperty'
         ];
 
         /**
@@ -125,6 +129,115 @@
                 "status"    => $page_exists ? 200 : 404,
                 "message"   => $page_exists ? "Successfully gave page" : "Error 404 - page with id $id does not exists in system",
                 "content"   => $page_exists ? $page->Serialize() : null
+            ];
+        }
+
+        /**
+         * Returns page properties
+         */
+        public function GetProperties(Request $request, App $app): array {
+            if(Authenticator::Guest()) return [ "status" => 403, "message" => "Forbidden for guests" ];
+            $id = $request->GetParamByIndex(0);
+
+            $page = Page::ById($id);
+            $page_exists = !! $page;
+
+            return [
+                "status"    => $page_exists ? 200 : 404,
+                "message"   => $page_exists ? "Successfully gave properties" : "Error 404 - page with id $id does not exists in system",
+                "content"   => $page_exists ? $page->Properties() : null
+            ];
+        }
+
+        /**
+         * Creates new page property
+         * 
+         * TODO: Page::CreateProperty method
+         */
+        public function CreateProperty(Request $request, App $app): array {
+            global $app;
+
+            if(Authenticator::Guest()) return [ "status" => 403, "message" => "Forbidden for guests" ];
+            
+            ////////////////////////////////
+            // Get database and table
+            ////////////////////////////////
+            $data = $request->GetContent();
+            $database = $app->GetDatabaseHandler();
+            $table = $database->GetTable('sapphire_pages_properties');
+
+            ////////////////////////////////
+            // Create Property
+            ////////////////////////////////
+            $table->Insert([
+                NULL,
+                $data->id,
+                $data->name,
+                ''
+            ]);
+
+            return [
+                'status' => 200,
+                'message' => 'Successfully created property',
+                'content' => []
+            ];
+        }
+
+        /**
+         * Deletes property
+         * 
+         * TODO: Page::DeleteProperty method
+         */
+        public function DeleteProperty(Request $request, App $app): array {
+            global $app;
+
+            if(Authenticator::Guest()) return [ "status" => 403, "message" => "Forbidden for guests" ];
+            $id = $request->GetParamByIndex(0);
+
+            ////////////////////////////////
+            // Get database and table
+            ////////////////////////////////
+            $database = $app->GetDatabaseHandler();
+            $table = $database->GetTable('sapphire_pages_properties');
+
+            $table->DeleteSingle(
+                whereId: $id
+            );
+
+            return [
+                'status' => 200,
+                'message' => 'Successfully deleted property',
+                'content' => []
+            ];
+        }
+
+        /**
+         * Saves property
+         * 
+         * TODO: Page::SaveProperty() method
+         */
+        public function SaveProperty(Request $request, App $app): array {
+            global $app;
+
+            if(Authenticator::Guest()) return [ "status" => 403, "message" => "Forbidden for guests" ];
+        
+
+            ////////////////////////////////
+            // Get database and table
+            ////////////////////////////////
+            $database = $app->GetDatabaseHandler();
+            $table = $database->GetTable('sapphire_pages_properties');
+            $data = $request->GetContent();
+
+            $table->UpdateSingle(
+                updates: [ 'value' => $data->value ],
+                whereId: $data->id
+            );
+
+            return [
+                'status' => 200,
+                'message' => 'Successfully saved property',
+                'content' => []
             ];
         }
     }

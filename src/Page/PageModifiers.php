@@ -12,6 +12,8 @@
         "url",
         "layout",
         "is_home",
+        "collection_id",
+        "collection_entry",
         "created_at",
         "created_by",
         "updated_at",
@@ -62,6 +64,14 @@
 
         public function IsHome(): bool {
             return !!$this->is_home;
+        }
+
+        public function GetCollectionId(): string {
+            return $this->collection_id;
+        }
+
+        public function GetCollectionEntry(): string {
+            return $this->collection_entry;
         }
 
         /**

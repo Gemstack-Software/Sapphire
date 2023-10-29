@@ -1,0 +1,1 @@
+CREATE TABLE `sapphire_pages_properties` ( `id` INT NOT NULL AUTO_INCREMENT , `page_id` TEXT NOT NULL , `name` TEXT NOT NULL , `value` TEXT NOT NULL , PRIMARY KEY (`id`));

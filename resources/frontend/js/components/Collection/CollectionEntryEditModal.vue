@@ -3,7 +3,7 @@
     import { FormatItemName } from "../../utils/Name"
     import { Type } from '../../utils/Schema'
     import { Post } from '../../utils/Fetch'
-    import { Notify } from '../../utils/Notifications'
+    import { Notify, NotifyRed } from '../../utils/Notifications'
     import AssetSelector from '../Assets/Selector.vue'
     import MultiSelector from '../Assets/MultiSelector.vue'
     import MixedArraySelector from '../MixedArray/MixedArraySelector.vue'
