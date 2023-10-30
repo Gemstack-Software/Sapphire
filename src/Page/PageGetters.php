@@ -123,4 +123,27 @@
 
             return $array;
         }
+
+        /**
+         * @name GetProperties
+         * 
+         * Returns all properties of page
+         */
+        public static function GetProperties(int $page_id): array {
+            global $app;
+            
+            ////////////////////////////////
+            // Get database and table
+            ////////////////////////////////
+            $database = $app->GetDatabaseHandler();
+            $table = $database->GetTable('sapphire_pages_properties');
+
+            ////////////////////////////////
+            // Get properties from table
+            ////////////////////////////////
+            return $table->AllWhere([
+                ["page_id", "=", $page_id]
+            ]);
+        }
+        
     }
