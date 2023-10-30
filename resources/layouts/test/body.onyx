@@ -1,0 +1,3 @@
+<div 
+    #attributes([ "class" => "body world" ])
+    ></div>
