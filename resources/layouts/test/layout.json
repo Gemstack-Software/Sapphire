@@ -1,7 +1,0 @@
-{
-    "name": "LayoutName",
-    "entries": {
-        "head": "head.onyx",
-        "body": "body.onyx"
-    }
-}

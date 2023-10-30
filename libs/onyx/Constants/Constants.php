@@ -1,6 +1,6 @@
 <?php
     define("ONYX_PREFIX", "[GemStack/ONYX]");
-    define("ONYX_ATTRIBUTES_TAG_REFEX", "(#attributes{[^}]*})");
+    define("ONYX_ATTRIBUTES_TAG_REGEX", "(\#attributes\([^\)]*\))");
     define("ONYX_COMMENT_TAG_REGEX", "(--[^-]*--)");
     define("ONYX_CONTENT_TAG_REGEX", "({[^}]*})");
     define("ONYX_METHOD_TAG_REGEX", "(\#{[^}]*})");

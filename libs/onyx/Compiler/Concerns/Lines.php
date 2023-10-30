@@ -2,6 +2,20 @@
     namespace Onyx\Compiler\Concerns;
 
     trait Lines {
+        public function ParseAttributesTagExpr(string $line_buffer): string {
+            return preg_replace_callback(ONYX_ATTRIBUTES_TAG_REGEX, function($tags) {
+                foreach($tags as $tag) {
+                    $tag = substr($tag, 12, strlen($tag) - 13);
+                    $attributes = "";
+
+                    foreach(eval('return ' . $tag . ';') as $key => $value)
+                        $attributes .= $key . '=' . '"' . $value . '" ';
+
+                    return $attributes;
+                }
+            }, $line_buffer);  
+        }
+
         public function ParseAssignTagExpr(string $line_buffer): string {
             return preg_replace_callback(ONYX_ASSIGN_TAG_REGEX, function($tags) {
                 foreach($tags as $tag) {
@@ -111,6 +125,7 @@
         }
 
         public function TransformLine(int $line_number, string $line_buffer): string {
+            if($this->HasExpression($line_buffer, ONYX_ATTRIBUTES_TAG_REGEX)) $line_buffer = $this->ParseAttributesTagExpr($line_buffer);
             if($this->HasExpression($line_buffer, ONYX_ASSIGN_TAG_REGEX)) $line_buffer = $this->ParseAssignTagExpr($line_buffer);
             if($this->HasExpression($line_buffer, ONYX_COMMENT_TAG_REGEX)) $line_buffer = $this->ParseCommentTagExpr($line_buffer);
             if($this->HasExpression($line_buffer, ONYX_METHOD_TAG_REGEX)) $line_buffer = $this->ParseMethodTagExpr($line_buffer);
