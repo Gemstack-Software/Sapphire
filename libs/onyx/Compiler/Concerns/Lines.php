@@ -163,4 +163,8 @@
 
             return $dist;
         }
+
+        public function Transform(string $source_buffer): string {
+            return $this->TransformLine(0, $source_buffer);   
+        }
     }

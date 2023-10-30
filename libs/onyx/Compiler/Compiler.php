@@ -42,10 +42,11 @@
             $this->source_buffer = $this->ReadSourceBuffer($source_file);
 
             // Generates lines from buffer
-            $lines = $this->BufferToLines($this->source_buffer);
+            // $lines = $this->BufferToLines($this->source_buffer);
 
             // Generating dist buffer
-            $dist_buffer = $this->TransformLines($lines);
+            // $dist_buffer = $this->TransformLines($lines);
+            $dist_buffer = $this->Transform($this->source_buffer);
 
             // Minify the dist buffer
             $dist_buffer = $this->Minify($dist_buffer);
