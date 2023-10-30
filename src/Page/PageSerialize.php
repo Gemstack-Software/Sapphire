@@ -18,8 +18,6 @@
                 'url' => $this->url,
                 'layout' => $this->layout,
                 'is_home' => $this->is_home,
-                'collection_id' => $this->collection_id,
-                'collection_entry' => $this->collection_entry,
                 'created_at' => $this->created_at,
                 'created_by' => $this->created_by,
                 'updated_at' => $this->updated_at,

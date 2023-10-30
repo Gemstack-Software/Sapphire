@@ -28,8 +28,6 @@
         protected string      $url;
         protected string      $layout;
         protected bool        $is_home;
-        protected string      $collection_id;
-        protected string      $collection_entry;
         protected string      $created_at;
         protected string      $created_by;
         protected string      $updated_at;

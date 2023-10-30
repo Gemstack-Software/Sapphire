@@ -6,8 +6,6 @@
     import { Reload } from '../../utils/Reload'
     import { Notify, NotifyRed } from '../../utils/Notifications'
     import UserShortcut from '../User/Shortcut.vue'
-    import CollectionSelector from '../Collection/CollectionSelector.vue'
-    import CollectionEntrySelector from '../Collection/CollectionEntrySelector.vue'
     import Property from './Property.vue'
 
     const { pageId, pageReloader } = defineProps({
@@ -97,13 +95,7 @@
     }
 
     GetLayouts()
-
-    ///////////////////////////
-    // Selecting collections
-    ///////////////////////////
-    const SelectCollection = (collection) => page.value.collection_id = collection
-    const SelectEntry = (entry) => page.value.collection_entry = entry
-
+    
     /////////////////////////
     // Getting properties
     /////////////////////////
@@ -198,26 +190,7 @@
                 <div class="page-editor__props padding form">
                     <h3 class="medium-header">Properties</h3>
 
-                    <div class="data-row">
-                        <div class="data-container">
-                            <label for="properties-collection" class="quick-header">Collection</label>
-                            
-                            <CollectionSelector 
-                                :collection="page.collection_id"
-                                @onSelected="(collection) => SelectCollection(collection)" />
-                        </div>
-
-                        <div class="data-container">
-                            <label for="" class="quick-header">Entry</label>
-
-                            <CollectionEntrySelector 
-                                :collection="page.collection_id"
-                                :value="page.collection_entry"
-                                @onSelected="(entry) => SelectEntry(entry)" />
-                        </div>
-                    </div>
-
-                    <label for="" class="quick-header">Properties</label>
+                    <label for="" class="quick-header">Page properties</label>
 
                     <div class="properties-container">
                         <div class="properties-container__top">
