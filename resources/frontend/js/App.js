@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import VueTippy from 'vue-tippy'
+import PrimeVue from 'primevue/config';
 import lower from './utils/Lower'
 import SetupUser from './pages/SetupUser.vue'
 import Login from './pages/Login.vue'
@@ -56,5 +57,7 @@ app.use(
     },
   }
 )
+
+app.use(PrimeVue)
 
 app.mount('#cms-app__root')

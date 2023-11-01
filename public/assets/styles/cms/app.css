@@ -1773,6 +1773,24 @@ h4.subheader[data-v-120fab04] {
   margin-top: 4px;
   margin-bottom: 24px;
 }
+@keyframes Blinking {
+0% {
+    opacity: 1;
+}
+50% {
+    opacity: 0.3;
+}
+100% {
+    opacity: 1;
+}
+}
+.editor-container {
+  margin-top: 16px;
+}
+.p-editor-toolbar * {
+  color: #eee !important;
+  stroke: #eee !important;
+}
 @keyframes Blinking-bab85a30 {
 0% {
     opacity: 1;

@@ -7,6 +7,7 @@
     import { Notify, NotifyRed } from '../../utils/Notifications'
     import UserShortcut from '../User/Shortcut.vue'
     import Property from './Property.vue'
+    import TextEditor from 'primevue/editor';
 
     const { pageId, pageReloader } = defineProps({
         pageId: String | Number,
@@ -157,7 +158,10 @@
 
                     <div class="data-container">
                         <label for="page-content" class="quick-header">Content</label>
-                        <textarea id="page-content" type="text" class="form-textarea" v-model="page.content"></textarea>
+                        <div class="editor-container">
+                            <TextEditor v-model="page.content" />
+                        </div>
+                        <!-- <textarea id="page-content" type="text" class="form-textarea" v-model="page.content"></textarea> -->
                     </div>
                 </div>
 
@@ -366,6 +370,20 @@
                     margin-bottom: 24px;
                 }
             }
+        }
+    }
+</style>
+
+<style lang="scss">
+    .editor-container {
+        margin-top: 16px;
+    }
+
+    .p-editor-toolbar {
+        * {
+            color: #eee !important;
+            // fill: #eee !important;
+            stroke: #eee !important;
         }
     }
 </style>
