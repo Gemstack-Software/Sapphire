@@ -145,6 +145,12 @@
 
             background: rgba($background-color-lighten, 0.2);
             box-shadow: 0 0 8px #0004;
+
+            .pages-list {
+                height: calc(100vh - 144px);
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
         }
 
         .pages-right {

@@ -1815,6 +1815,11 @@ h4.subheader[data-v-120fab04] {
   background: rgba(24, 24, 27, 0.2);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2666666667);
 }
+.pages .pages-left .pages-list[data-v-bab85a30] {
+  height: calc(100vh - 144px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 .pages .pages-right[data-v-bab85a30] {
   width: 100%;
 }
