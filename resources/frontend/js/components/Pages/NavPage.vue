@@ -41,7 +41,7 @@
 <template>
     <div :class="`nav-page ${isOpen ? 'open' : ''}`">
         <div class="nav-page__topbar top-flex" @click="ToggleOpen" :style="{ 'padding-left': (24 + (index) * 8) + 'px' }">
-            <span :class="`nav-page__title text-overflow`" data-aos="flip-up" :style="{ color: isOpen ? '#0099ff' : 'inherit' }" @click="EditPage">
+            <span :class="`nav-page__title text-overflow`" :style="{ color: isOpen ? '#0099ff' : 'inherit' }" @click="EditPage">
                 {{ page.name }}
             </span>
 
