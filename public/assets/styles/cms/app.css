@@ -2070,10 +2070,18 @@ h4.subheader[data-v-120fab04] {
   background: rgba(24, 24, 27, 0.2);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2666666667);
 }
-.app-editor .app-sidebar .quick-header[data-v-7a228af2] {
+.app-editor .app-sidebar .top-folder[data-v-7a228af2] {
+  padding: 12px 24px;
+  background: rgba(0, 0, 0, 0);
+  transition: 0.225s;
+}
+.app-editor .app-sidebar .top-folder[data-v-7a228af2]:hover {
+  background: rgba(0, 0, 0, 0.1333333333);
+}
+.app-editor .app-sidebar .top-folder .quick-header[data-v-7a228af2] {
   width: 100%;
 }
-.app-editor .app-sidebar .quick-header button[data-v-7a228af2] {
+.app-editor .app-sidebar .top-folder .quick-header button[data-v-7a228af2] {
   margin-left: 16px;
 }
 .app-editor .app-editor__inner[data-v-7a228af2] {

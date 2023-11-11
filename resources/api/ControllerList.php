@@ -14,13 +14,6 @@
     use Sapphire\Api\Controllers\Plugins;
 
     /**
-     * Controller list for plugins
-     */
-    class PluginControllerList {
-        public static array $list = [];
-    }
-
-    /**
      * Returns all sapphire controllers
      */
     return [

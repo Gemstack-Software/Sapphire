@@ -229,7 +229,8 @@
             return [
                 "layouts",
                 "components",
-                "styles"
+                "styles",
+                "controllers"
             ];
         }
     }

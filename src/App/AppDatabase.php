@@ -2,6 +2,7 @@
     namespace Sapphire\App;
 
     use Sapphire\Database\Database;
+    use Sapphire\Exceptions\DatabaseCannotConnectException;
 
     trait AppDatabase {
         /**

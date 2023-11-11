@@ -9,6 +9,7 @@
     use Sapphire\Router\Routes\Routes;
     use Sapphire\Settings\SettingsManager;
     use Sapphire\Minifier\HTMLMinifier;
+    use Sapphire\Controller\ControllerManager;
 
     trait AppSetup {
         use Routes;
@@ -36,7 +37,9 @@
             // Setup all factories
             /////////////////////////////
             $this->database = new Database($this->GetLock()->database);
-            
+
+            ControllerManager::SetupControllers();
+
             $this->CheckIfAnyUser();
             $this->user = User::Session();
 

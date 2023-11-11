@@ -2,6 +2,7 @@
     namespace Sapphire\User;
 
     use Sapphire\Setup\SetupInterface;
+    use Sapphire\Exceptions\DatabaseCannotConnectException;
 
     trait UserSetup {
         public function Setup(): void {

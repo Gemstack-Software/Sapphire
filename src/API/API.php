@@ -8,6 +8,13 @@
     use Sapphire\Request\Request;
 
     /**
+     * Controller list for plugins
+     */
+    class PluginControllerList {
+        public static array $list = [];
+    }
+
+    /**
      * API Does not uses Sapphire\Router\Router
      * API Request is proccessed before Router is even initialized.
      * After done API Request Sapphire exit();
@@ -103,7 +110,7 @@
 
             foreach(PluginControllerList::$list as $key => $controller)
                 $final_list[$key] = $controller;
-            
+
             return $final_list;
         }
     }

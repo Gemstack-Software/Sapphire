@@ -22,7 +22,7 @@
 ?>
 
 <?php $app->View('components/Top', ['app' => $app]); ?>
-    <?php $app->View('Head', ['app' => $app, 'admin' => true]); ?>
+    <?php $app->View('Head', ['app' => $app, 'admin' => true, 'error' => true]); ?>
     <body>
         <div id="cms-app__root" class="exception">
             <div class="exception-topbar">

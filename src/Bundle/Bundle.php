@@ -176,3 +176,5 @@
     require_once('../src/Plugin/PluginApp.php');
     require_once('../src/Plugin/Plugin.php');
     require_once('../src/Plugin/PluginLoader.php');
+
+    require_once('../src/Controller/ControllerManager.php');
