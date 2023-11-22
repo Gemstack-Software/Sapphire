@@ -12,6 +12,7 @@
     use Sapphire\Api\Controllers\Disk;
     use Sapphire\Api\Controllers\Settings;
     use Sapphire\Api\Controllers\Plugins;
+    use Sapphire\Api\Controllers\Components;
 
     /**
      * Returns all sapphire controllers
@@ -27,5 +28,6 @@
         'app-files' => AppFiles::class,
         'disk' => Disk::class,
         'settings' => Settings::class,
-        'plugins' => Plugins::class
+        'plugins' => Plugins::class,
+        'components' => Components::class
     ];

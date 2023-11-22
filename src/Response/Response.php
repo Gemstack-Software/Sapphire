@@ -43,4 +43,17 @@
             $image->Out();
             exit();
         } 
+
+        /**
+         * @name HTML
+         * @static
+         * 
+         * Returns html text
+         */
+        public static function HTML(string $html): \exit {
+            header('Content-Type: text/html');
+            echo $html;
+
+            exit();
+        } 
     }   

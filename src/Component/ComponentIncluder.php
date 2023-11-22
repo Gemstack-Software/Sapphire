@@ -32,6 +32,6 @@
             $component->Mounted();
 
             // Rendering component
-            $component->Render();
+            $component->Render([], $name);
         }
     }

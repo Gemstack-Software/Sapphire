@@ -22,7 +22,7 @@
          * 
          * =========================================================================================
          */
-        public function Render(\stdClass | array $data = []): void {
+        public function Render(\stdClass | array $data = [], string $name = ''): void {
             global $app;
 
             if($data === []) $data = $this->params;
@@ -57,6 +57,24 @@
                     "params" => Json::Make($data),
                     "app" => $app
                 ]);
+                echo "<script id=\"component-state-$this->component_id\" type=\"application/json\">";
+                echo $this->RenderProperties($name);
+                echo "</script>";
             echo "</root>";
+        }
+
+        /**
+         * Renders component properties
+         */
+        public function RenderProperties(string $name) {
+            $props = json_decode(json_encode($this));
+
+            unset($props->params);
+
+            return json_encode([
+                'props' => $props,
+                'params' => $this->params,
+                'name' => $name
+            ]);
         }
     }

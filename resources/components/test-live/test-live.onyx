@@ -1,0 +1,23 @@
+-- To use LiveOnyx add: --
+-- <meta name="onyx::event-safe-time" content="10"> --
+-- #LiveOnyx -- 
+-- inside the head of layout --
+
+<div>
+    <h1>Tasks manager | [{count($props->tasks)}]</h1>
+
+    <div class="topbar">
+        <input type="text" id="task-name">
+        <button $click="(component) => component.props.tasks.push(document.querySelector('#task-name').value)">Add task</button>
+    </div>
+
+    <ul class="tasks">
+        #foreach($props->tasks as $key => $task)
+            <li>
+                <strong>{$key+1}.</strong>
+                <span>{$task}</span>
+                <button $click="(component) => component.props.tasks = component.props.tasks.filter(task => task != '{$task}')">&times;</button>
+            </li>
+        #endforeach
+    </ul>
+</div>

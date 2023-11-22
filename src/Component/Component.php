@@ -39,6 +39,13 @@
         public \stdClass | array $params;
 
         /**
+         * Set component id
+         */
+        public function SetComponentId(string $component_id): void {
+            $this->component_id = $component_id;
+        }
+
+        /**
          * Set component params
          */
         public function SetParams(\stdClass | array $params): void {

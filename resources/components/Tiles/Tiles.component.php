@@ -13,12 +13,14 @@
         // On mounted event
         ///////////////////////////////////////////////////////////
         public function Mounted(): void {
-            $this->tiles = Collection::Get("HomepageTiles")->All();
-            
-            // Changes tile into tile->attributes
-            foreach($this->tiles as $key => $tile) {
-                $this->tiles[$key] = $tile->attributes;
-            }
+            // $this->ClientFetch(function() {
+                $this->tiles = Collection::Get("HomepageTiles")->All();
+                
+                // Changes tile into tile->attributes
+                foreach($this->tiles as $key => $tile) {
+                    $this->tiles[$key] = $tile->attributes;
+                }
+            // });
         }
 
         ///////////////////////////////////////////////////////////

@@ -148,6 +148,7 @@
             $line_buffer = str_replace("#continue", "<?php continue; ?>", $line_buffer);
             $line_buffer = str_replace("#endfor", "<?php endfor; ?>", $line_buffer);
             $line_buffer = str_replace("#endwhile", "<?php endwhile; ?>", $line_buffer);
+            $line_buffer = str_replace("#LiveOnyx", '<script src="/assets/scripts/liveonyx/liveonyx.framework.js"></script>', $line_buffer);
             
             return $line_buffer;
         }

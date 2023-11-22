@@ -157,6 +157,7 @@
     require_once('../src/API/Controllers/Disk.php');
     require_once('../src/API/Controllers/Settings.php');
     require_once('../src/API/Controllers/Plugins.php');
+    require_once('../src/API/Controllers/Components.php');
 
     require_once('../src/Router/RouterResource.php');
     require_once('../src/Router/Concerns/RouterPage.php');
