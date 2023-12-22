@@ -78,7 +78,7 @@
 
             // Updating updated_by and updated_at
             $entry->updated_at = date('Y-m-d H:i:s');
-            $entry->updated_by = $_SESSION["sapphire_user_id"];
+            $entry->updated_by = isset($_SESSION["sapphire_user_id"]) ? $_SESSION["sapphire_user_id"] : null;
 
             // Replace entry
             $this->contents[$entry_index] = $entry;
