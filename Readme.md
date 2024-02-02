@@ -7,6 +7,16 @@ Sapphire is brand new solution for Web Development. It's working using 2 concept
 It will easily fit your needs because of built-in Plugins Manager System which allows extending Sapphire
 via Plugins which can control all aspects of CMS and Framework.
 
+## Installation
+After installing on localhost, add folders "~trash" and "~temp" in resources folder locally, 
+PHP version: 8.0.10
+
+## Starting
+```
+cd public
+php -S localhost:2000
+```
+
 ## Reasons why Sapphire:
 1. Admin Panel
 Admin Panel is sacred thing for us in Sapphire. It was created for YOU. 
